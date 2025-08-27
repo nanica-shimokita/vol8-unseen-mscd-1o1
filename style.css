@@ -6,6 +6,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
+    font-size: 1.3em; /* 全体の基準となるフォントサイズを少し大きくする */
 }
 
 .container {
@@ -21,20 +22,21 @@ h1 {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 40px;
+    font-size: 2em; /* bodyの1.1emを基準に2倍に */
 }
 
 /* アコーディオンの共通スタイル */
 .accordion {
     margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden; /* 子要素のborderRadiusを適用するため */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .accordion-header {
-    background-color: #1f1e30ff; /* 見出しの背景色 */
+    background-color: #1f1e30ff;
     color: white;
-    padding: 15px 20px; /* 上下15px、左右20pxのパディング */
+    padding: 15px 20px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -49,37 +51,38 @@ h1 {
 
 /* ヘッダーのアイコン（+ / -） */
 .accordion-header::after {
-    content: '+'; /* 閉じている時のアイコン */
+    content: '+';
     font-size: 1.5em;
     transition: transform 0.3s ease;
 }
 
 .accordion-header.active::after {
-    content: '-'; /* 開いている時のアイコン */
-    transform: rotate(0deg); /* アコーディオンが開いたときにアイコンを回転させない */
+    content: '-';
+    transform: rotate(0deg);
 }
 
 .accordion-content {
-    padding: 0 20px; /* 閉じている時は上下のパディングを0に */
+    padding: 0 20px;
     background-color: #f9f9f9;
-    max-height: 0; /* 最初は閉じている状態 */
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* paddingもアニメーション対象に含める */
-    overflow-y: auto; /* 縦スクロールを有効にする */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    overflow-y: auto;
 }
 
 .accordion-content.open {
-    max-height: 700px; /* ここに適切な最大高さを指定してください（例: 300px）。これを超えるとスクロールします。 */
-    padding: 15px 20px; /* 開いた時に上下15px、左右20pxのパディング */
+    max-height: 700px;
+    padding: 15px 20px;
 }
 
 /* ヒント本文（アコーディオンコンテンツ内のテキスト）の余白 */
 .hint-body {
-    padding: 5px 0; /* ヒント本文とアコーディオンコンテンツの境界に少し余白を追加 */
+    padding: 5px 0;
 }
 .hint-body p {
-    margin: 0; /* pタグのデフォルトマージンをリセット */
-    padding: 0; /* pタグのデフォルトパディングをリセット */
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em; /* bodyのフォントサイズを継承 */
 }
 
 
@@ -87,12 +90,12 @@ h1 {
 .inner-accordion {
     margin-top: 15px;
     margin-bottom: 10px;
-    border: 1px dashed #bbb; /* 親と区別する線 */
+    border: 1px dashed #bbb;
 }
 
 .inner-accordion .accordion-header {
-    background-color: #2a6fc9; /* 入れ子の見出しの背景色 */
-    padding: 10px 15px; /* 上下10px、左右15pxのパディング */
+    background-color: #2a6fc9;
+    padding: 10px 15px;
 }
 
 .inner-accordion .accordion-header:hover {
@@ -101,16 +104,16 @@ h1 {
 
 .inner-accordion .accordion-content {
     background-color: #ecf0f1;
-    padding: 0 15px; /* 閉じている時は上下のパディングを0に */
-    max-height: 0; /* 最初は閉じている状態 */
+    padding: 0 15px;
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* paddingもアニメーション対象に含める */
-    overflow-y: auto; /* 縦スクロールを有効にする */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    overflow-y: auto;
 }
 
 .inner-accordion .accordion-content.open {
-    max-height: 500px; /* 入れ子アコーディオンの最大高さ (必要に応じて調整) */
-    padding: 10px 15px; /* 開いた時に上下10px、左右15pxのパディング */
+    max-height: 500px;
+    padding: 10px 15px;
 }
 
 /* パスワード入力エリア */
@@ -163,8 +166,47 @@ h1 {
     font-weight: bold;
 }
 .hint-image {
-    max-width: 100%; /* 画像が親要素からはみ出さないように調整 */
+    max-width: 200px;
     height: auto;
-    display: block; /* 画像の下に余白ができないようにブロック要素にする */
-    margin: 10px 0; /* 上下に余白を追加 */
+    display: block;
+    margin: 10px 0;
+}
+/* スタート画面のスタイル */
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+#start-screen h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #2c3e50;
+}
+
+#start-screen p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+#show-hint-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#show-hint-button:hover {
+    background-color: #2980b9;
+}
+
+#hint-content {
+    display: none;
 }
